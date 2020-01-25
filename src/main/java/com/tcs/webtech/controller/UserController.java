@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Optional;
 import javax.validation.Valid;
 import javax.xml.ws.soap.AddressingFeature;
-//import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -105,15 +105,15 @@ public class UserController {
 
         return ResponseEntity.ok(urepo.save(new WebtechUserdetails(udto.getName(), udto.getEmail(), udto.getPassword(), udto.getImage_path(),new Date(),false)));
     }
-//    @GetMapping("/down")
-//    public ResponseEntity imageFetch() throws FileNotFoundException, IOException{
-//        
-//        String img = webt.get().getImagePath();
-//        String filepath = System.getProperty("user.dir")+ File.separator + env.getProperty("file-path") + File.separator + img;
-//        File file=new File(filepath);
-//        InputStream is = new FileInputStream(file);
-//        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.IMAGE_PNG).body(IOUtils.toByteArray(is));
-//    }
+    @GetMapping("/down")
+    public ResponseEntity imageFetch() throws FileNotFoundException, IOException{
+        
+        String img = webt.get().getImagePath();
+        String filepath = System.getProperty("user.dir")+ File.separator + env.getProperty("file-path") + File.separator + img;
+        File file=new File(filepath);
+        InputStream is = new FileInputStream(file);
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.IMAGE_PNG).body(IOUtils.toByteArray(is));
+    }
     @GetMapping("/Logout")
     public ModelAndView logout(){
         webt = null;

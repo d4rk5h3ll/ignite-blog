@@ -32,7 +32,7 @@ and open the template in the editor.
                 </div>
                 <div class="col-lg-4">
                     <div class="login-box">
-                        <form class="frm" action="/login/auth" method="post">
+                        <form class="frm" action="/login/auth" method="POST">
                             <div class="form-group a">
                                 <label for="login" style="font-size:20px; color: white;">Login to continue</label>
                             </div>
@@ -40,7 +40,12 @@ and open the template in the editor.
                                 <input type="email" class="form-control" placeholder="Email ID" name="email" id="#" value="" required="required">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" name="password" id="#" value="" required="required">
+                                <input type="password" class="form-control" placeholder="Password" name="password" id="pass" value="" required="required">
+                            </div>
+                            <div class="form-group">
+                                <!--<div class="checkbox">-->
+                                <input type="checkbox" onclick="showPass()"> <span style="color:white;"> Show Password </span>
+                                <!--</div>-->
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary" id="procced"> PROCCED </button>
@@ -59,27 +64,36 @@ and open the template in the editor.
     </body>
 
     <script>
-//        $(document).ready(function () {
-//            function disableBack() {
-//                window.history.forward()
-//            }
-//
-//            window.onload = disableBack();
-//            window.onpageshow = function (evt) {
-//                if (evt.persisted)
-//                    disableBack()
-//            }
-//        });
-        var e = document.getElementsByName(email).val();
-        var p = document.getElementsByName(password).val();
-        $("#procced").click(function () {
-            $.ajax({
-                url: "./../URI",
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data.email);
-                    console.log(data.password);
-                }
-            });
+        $(document).ready(function () {
+            function disableBack() {
+                window.history.forward()
+            }
+
+            window.onload = disableBack();
+            window.onpageshow = function (evt) {
+                if (evt.persisted)
+                    disableBack()
+            }
         });
+        function showPass() {
+            var x = document.getElementById("pass");
+            if (x.type === "password") {
+                x.type = "text";
+            } else
+            {
+                x.type = "password";
+            }
+        }
+        //        var e = document.getElementsByName(email).val();
+        //        var p = document.getElementsByName(password).val();
+        //        $("#procced").click(function () {
+        //            $.ajax({
+        //                url: "./../URI",
+        //                success: function (data, textStatus, jqXHR) {
+        //                    console.log(data.email);
+        //                    console.log(data.password);
+        //                }
+        //            });
+        //        });
     </script>
 </html>

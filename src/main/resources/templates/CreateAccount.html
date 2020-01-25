@@ -4,6 +4,7 @@
     <head>
         <title> Create Account </title>
         <meta charset="UTF-8">
+        <!--<meta http-equiv="refresh" content="5"> auto refresh-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./../assets/css/createaccount.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -59,17 +60,17 @@
 
     </body>
     <script>
-//        $(document).ready(function () {
-//            function disableBack() {
-//                window.history.forward()
-//            }
-//
-//            window.onload = disableBack();
-//            window.onpageshow = function (evt) {
-//                if (evt.persisted)
-//                    disableBack()
-//            }
-//        });
+        $(document).ready(function () {
+            function disableBack() {
+                window.history.forward()
+            }
+
+            window.onload = disableBack();
+            window.onpageshow = function (evt) {
+                if (evt.persisted)
+                    disableBack()
+            }
+        });
 
         $(document).ready(function () {
 
