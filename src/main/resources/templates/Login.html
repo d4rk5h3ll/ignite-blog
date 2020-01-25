@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title> Login </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./../assets/css/login.css">
+        <link rel="icon" href="./../assets/images/thunder.png">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="para">
+                        <img src="./../assets/images/logo.png" style="height:60px; width:300px;"> <hr>
+                        <p> Its time to take a walk-through along the best thoughts. </p>
+                        <p> Share your perspective, </p>
+                        <p> Get the best </p>
+                        <p> Help yourself to find the best angles in and around.. </p>
+                        <button type="button" class="btn btn-default" style="margin-top: 14px;" onclick="window.location = '/register';"> Join our community </button>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-4">
+                    <div class="login-box">
+                        <form class="frm" action="/login/auth" method="post">
+                            <div class="form-group a">
+                                <label for="login" style="font-size:20px; color: white;">Login to continue</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email ID" name="email" id="#" value="" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" name="password" id="#" value="" required="required">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" id="procced"> PROCCED </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </body>
+
+    <script>
+//        $(document).ready(function () {
+//            function disableBack() {
+//                window.history.forward()
+//            }
+//
+//            window.onload = disableBack();
+//            window.onpageshow = function (evt) {
+//                if (evt.persisted)
+//                    disableBack()
+//            }
+//        });
+        var e = document.getElementsByName(email).val();
+        var p = document.getElementsByName(password).val();
+        $("#procced").click(function () {
+            $.ajax({
+                url: "./../URI",
+                success: function (data, textStatus, jqXHR) {
+                    console.log(data.email);
+                    console.log(data.password);
+                }
+            });
+        });
+    </script>
+</html>

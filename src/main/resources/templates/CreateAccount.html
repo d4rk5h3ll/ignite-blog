@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Create Account </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./../assets/css/createaccount.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="icon" href="./../assets/images/thunder.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <img class="profile-img" src="/down" style="height: 134px; width: 157px; margin-left: 50px;">
+            <div class="nme" style="padding-left: 40px;">
+                <h1><p class="profile-name"> </p></h1>
+                <h3><p class="profile-name"> </p></h3>
+            </div>
+            <div class="lgoutbtn" style="margin-left: auto; margin-top: auto; padding: 35px 160px 35px 35px;">
+                <button type="button" class="btn btn-danger form-control a" onclick="window.location = '/Logout';"> Logout </button>
+            </div>
+        </div>
+        <div class="bdy">
+            <div class="box-1">
+                <form class="frm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter blog title" name="#" id="#" value="" required="required">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" placeholder="" id="#" name="#"> </textarea>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <input type="file" class="">
+                        <button type="button" class="btn btn-primary form-control" style="margin-left: 250px"> POST </button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="box-2">
+                <div class="inbox-1">
+                    <div class="lft">
+                        <img class="profile-img" src="/down" style="height: 95px; width: 95px;">
+                    </div>
+                    <div class="rght" style="padding-left: 75px;">
+                        <p class="cap1" style="font-size: 25px;">    </p>
+                        <p id="datetime"> </p>
+                        <p> Edit </p>
+                        <p> Delete </p>
+                    </div>
+                </div>
+                <div class="inbox-2">
+                    <p class="cap2" style="font-size: 16px;"> Blog3 </p>
+                    <p> qwertyuiopasdfghjklzxcvbnm </p>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+    <script>
+//        $(document).ready(function () {
+//            function disableBack() {
+//                window.history.forward()
+//            }
+//
+//            window.onload = disableBack();
+//            window.onpageshow = function (evt) {
+//                if (evt.persisted)
+//                    disableBack()
+//            }
+//        });
+
+        $(document).ready(function () {
+
+            var currentdate = new Date();
+            var datetime =
+                    currentdate.getDate() + "/"
+                    + (currentdate.getMonth() + 1) + "/"
+                    + currentdate.getFullYear() + " @ "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds();
+            $("#datetime").append(datetime);
+        });
+
+        $(document).ready(function () {
+            $.ajax({
+                url: "./../URI",
+                success: function (data, textStatus, jqXHR) {
+//                    console.log(data.imagePath);
+                    $(".profile-name").append(data.name);
+                    $(".cap1").append(data.name);
+                }
+            });
+        });
+    </script>
+
+</html>

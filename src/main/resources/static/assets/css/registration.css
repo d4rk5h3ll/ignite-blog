@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 25, 2019, 11:59:56 AM
+    Author     : ignite177
+*/
+body{
+    background-color: #6e6294 !important;
+}
+.logo{
+    margin-top:15px;
+}
+.reg-box{
+    background-color: #8b81aa;
+    margin-top: 50px;
+    box-shadow: 0px 0px 12px 7px;
+    padding: 60px 90px 20px 90px;
+}
+.frm{
+    color: white;
+}
+.form-group{
+    margin-bottom: 25px !important;
+}
